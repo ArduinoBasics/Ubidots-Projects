@@ -44,7 +44,7 @@
  *      DEVICE_LABEL : The "Device API Label" = maker-display
  *   VARIABLE_LABEL1 : The "Button1 API Label" for the button = button1
  *        mqttBroker : The link to the Ubidots MQTT broker
- *       buttonTopic : This char array will hold the path to the button on the Ubidots dashboard. Eg:  /v1.6/devices/mdisplay/button1/lv  
+ *       buttonTopic : This char array will hold the path to the button on the Ubidots dashboard. Eg:  /v1.6/devices/maker-display/button1/lv  
  *      makerDisplay : create a WiFiClient
  *            client : create a PubSubClient from the WiFi Client - for MQTT communication.
  *            
@@ -117,7 +117,7 @@ void loop(){
  * callback()
  * ---------------------------------------------------------------------------
  * The function first ensures that the topic received from the MQTT broker is the correct one for the Button.
- * The strcmp function returns a zero (0) if "topic" and "buttonTopic" variables are equal  i.e. /v1.6/devices/mdisplay/button1/lv
+ * The strcmp function returns a zero (0) if "topic" and "buttonTopic" variables are equal  i.e. /v1.6/devices/maker-display/button1/lv
  * The value of the button (0 or 1) will be captured by the payload variable.
  * If payload[0]='1' then the button is ON. If zero '0', then it is OFF.
  * Print the state of the button to the Serial monitor.
@@ -143,7 +143,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
  *  - remember that the MQTT broker was configured in setup: "industrial.api.ubidots.com" on port 1883 
  *  
  *  Display a message upon successful connection.
- *  Using the sprintf() function, buttonTopic will equal: /v1.6/devices/mdisplay/button1/lv
+ *  Using the sprintf() function, buttonTopic will equal: /v1.6/devices/maker-display/button1/lv
  *  Subscribe to receive messages related to the button on the Ubidots dashboard (defined by buttonTopic).
  *  
  *  If the connection FAILS - print a "Failed connection" message. 
